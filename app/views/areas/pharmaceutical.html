@@ -1,0 +1,158 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Pharmaceutical Data - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/areas/pharmaceutical",
+    text: "Pharmaceutical"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">Pharmaceutical Data</h1>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <p class="nhsuk-body-l">Access pharmaceutical data, systems and dashboards from the NHS Business Services Authority. This area provides information on prescribing patterns, costs, and trends across primary care in England.</p>
+        </div>
+      </div>
+
+      <!-- Key Systems Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Key Systems</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">ePACT2</h3>
+              <p>Electronic Prescribing and Cost Tool (ePACT2) provides access to prescription data at NHS organization and prescriber level.</p>
+              <p>Use ePACT2 to:</p>
+              <ul>
+                <li>Monitor prescribing patterns</li>
+                <li>Identify cost-saving opportunities</li>
+                <li>Compare prescribing across organizations</li>
+              </ul>
+              <a href="/access/system" class="nhsuk-button">Request Access</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Manage Your Service (MYS)</h3>
+              <p>MYS allows pharmacy contractors to manage their NHS services and submit claims for payment.</p>
+              <p>Use MYS to:</p>
+              <ul>
+                <li>Submit monthly prescription declarations</li>
+                <li>Claim for advanced services</li>
+                <li>Update pharmacy details</li>
+              </ul>
+              <a href="/access/system" class="nhsuk-button">Request Access</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Datasets Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Available Datasets</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Prescription Cost Analysis (PCA)</h3>
+              <p>Details of all prescriptions dispensed in the community in England, including costs and quantities.</p>
+              <p>Updated: Monthly</p>
+              <a href="/datasets/pca" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Practice Prescribing Data</h3>
+              <p>Prescribing data at GP practice level, showing prescribing patterns and costs.</p>
+              <p>Updated: Monthly</p>
+              <a href="/datasets/practice-prescribing" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Pharmacy Contractor Activity</h3>
+              <p>Data on pharmacy contractor activity, including dispensing volumes and service provision.</p>
+              <p>Updated: Quarterly</p>
+              <a href="/datasets/pharmacy-contractor" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboards Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Dashboards</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Medicines Optimisation Dashboard</h3>
+              <p>Interactive dashboard showing prescribing patterns, costs, and opportunities for optimization.</p>
+              <a href="/dashboards/medicines-optimisation" class="nhsuk-button">View Dashboard</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Controlled Drugs Monitoring</h3>
+              <p>Dashboard for monitoring prescribing of controlled drugs across different regions and organizations.</p>
+              <a href="/dashboards/controlled-drugs" class="nhsuk-button">View Dashboard</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Use Case Examples</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Identifying Cost-Saving Opportunities</h3>
+              <p>A Clinical Commissioning Group used ePACT2 data to identify high-cost prescribing areas and implement targeted interventions, resulting in annual savings of £1.2 million.</p>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Monitoring Antimicrobial Stewardship</h3>
+              <p>NHS Trusts used prescribing data to monitor compliance with antimicrobial prescribing guidelines, leading to a 15% reduction in inappropriate antibiotic prescribing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Request Data Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Need Something Specific?</h2>
+          <p>If you can't find what you need in our existing datasets or dashboards, you can submit a custom data request.</p>
+          <a href="/request-data" class="nhsuk-button">Request Data</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

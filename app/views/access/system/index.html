@@ -1,0 +1,146 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  System Access Request - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/access/system",
+    text: "System Access Request"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">Request access to a system</h1>
+      
+      <p class="nhsuk-body-l">Use this form to request access to NHSBSA systems.</p>
+      
+      <form action="/access/system/confirmation" method="post">
+        <!-- System Selection -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="system">
+            Which system do you need access to?
+          </label>
+          <select class="nhsuk-select" id="system" name="system">
+            <option value="">Select a system</option>
+            <option value="epact2">ePACT2 - Electronic Prescribing and Cost Tool</option>
+            <option value="compass">Compass - Contract and Performance System</option>
+            <option value="mys">MYS - Manage Your Service</option>
+            <option value="gp-dashboard">GP Prescribing Dashboard</option>
+            <option value="provider-portal">Provider Assurance Portal</option>
+            <option value="contract-management">Contract Management System</option>
+          </select>
+        </div>
+        
+        <!-- Role Selection -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="role">
+            What role do you require?
+          </label>
+          <select class="nhsuk-select" id="role" name="role">
+            <option value="">Select a role</option>
+            <option value="viewer">Viewer (read-only access)</option>
+            <option value="analyst">Analyst (can run reports and export data)</option>
+            <option value="admin">Administrator (full system access)</option>
+            <option value="other">Other (please specify)</option>
+          </select>
+        </div>
+        
+        <!-- Other Role Details -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="role-other">
+            If 'Other', please specify the role you require
+          </label>
+          <input class="nhsuk-input" id="role-other" name="role-other" type="text">
+        </div>
+        
+        <!-- Reason for Access -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="reason">
+            Why do you need access to this system?
+          </label>
+          <div class="nhsuk-hint">
+            <p>Please provide details of your job role and how you will use this system</p>
+          </div>
+          <textarea class="nhsuk-textarea" id="reason" name="reason" rows="5" aria-describedby="reason-hint"></textarea>
+        </div>
+        
+        <!-- Email Address -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="email">
+            Your NHS email address
+          </label>
+          <div class="nhsuk-hint">
+            <p>Must be an @nhs.net or @nhs.uk email address</p>
+          </div>
+          <input class="nhsuk-input" id="email" name="email" type="email">
+        </div>
+        
+        <!-- Manager Details -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="manager">
+            Your manager's name
+          </label>
+          <input class="nhsuk-input" id="manager" name="manager" type="text">
+        </div>
+        
+        <!-- Manager Email -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="manager-email">
+            Your manager's email address
+          </label>
+          <input class="nhsuk-input" id="manager-email" name="manager-email" type="email">
+        </div>
+        
+        <!-- Organisation -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="organisation">
+            Your organisation
+          </label>
+          <input class="nhsuk-input" id="organisation" name="organisation" type="text">
+        </div>
+        
+        <!-- Training Requirements -->
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend">
+              Do you require training for this system?
+            </legend>
+            <div class="nhsuk-radios nhsuk-radios--inline">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="training-yes" name="training" type="radio" value="yes">
+                <label class="nhsuk-label nhsuk-radios__label" for="training-yes">
+                  Yes
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="training-no" name="training" type="radio" value="no">
+                <label class="nhsuk-label nhsuk-radios__label" for="training-no">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+        <!-- Submit Button -->
+        {{ button({
+          "text": "Submit request"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

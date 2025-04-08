@@ -1,0 +1,135 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Confirmation - Request Data - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/request-data",
+        text: "Request Data"
+      }
+    ],
+    href: "/request-data/confirmation",
+    text: "Confirmation"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-panel nhsuk-panel--confirmation nhsuk-u-margin-bottom-4">
+        <h1 class="nhsuk-panel__title">
+          Data request submitted
+        </h1>
+        <div class="nhsuk-panel__body">
+          Your reference number<br>
+          <strong>HDR-{{ "now" | date('YYYYMMDD') }}-{{ range(1000, 9999) | random }}</strong>
+        </div>
+      </div>
+      
+      <h2 class="nhsuk-heading-m">What happens next</h2>
+      
+      <p>We've received your data request and will process it according to the following Service Level Agreement (SLA):</p>
+      
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading">Service Level Agreement</h3>
+          <ul>
+            <li>Initial assessment: <strong>2 working days</strong></li>
+            <li>Data extraction and preparation: <strong>5-10 working days</strong> (depending on complexity)</li>
+            <li>Quality assurance and governance checks: <strong>3 working days</strong></li>
+            <li>Delivery: <strong>1-2 working days</strong> after approval</li>
+          </ul>
+          <p>Total estimated time: <strong>11-17 working days</strong></p>
+        </div>
+      </div>
+      
+      <p>You will receive an email confirmation with details of your request to your NHS email address.</p>
+      
+      <h2 class="nhsuk-heading-m">Request summary</h2>
+      
+      <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Purpose
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Business intelligence
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Datasets
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            <ul>
+              <li>Prescription Cost Analysis (PCA)</li>
+              <li>GP Practice Prescribing Data</li>
+            </ul>
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Time period
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Last quarter
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Geography
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Regional
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Output format
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Excel file
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Delivery method
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Email
+          </dd>
+        </div>
+      </dl>
+      
+      <h2 class="nhsuk-heading-m">Contact us</h2>
+      
+      <p>If you have any questions about your request, please contact the Data Hub team:</p>
+      
+      <ul>
+        <li>Email: <a href="#">datahub@nhsbsa.nhs.uk</a></li>
+        <li>Phone: 0300 330 1348</li>
+      </ul>
+      
+      <p>Please quote your reference number when contacting us.</p>
+      
+      <p><a href="/">Return to the Data Hub homepage</a></p>
+    </div>
+  </div>
+{% endblock %}

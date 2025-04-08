@@ -1,0 +1,123 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Confirmation - Dashboard Request - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/access/dashboard",
+        text: "Dashboard Request"
+      }
+    ],
+    href: "/access/dashboard/confirmation",
+    text: "Confirmation"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-panel nhsuk-panel--confirmation nhsuk-u-margin-bottom-4">
+        <h1 class="nhsuk-panel__title">
+          Dashboard request submitted
+        </h1>
+        <div class="nhsuk-panel__body">
+          Your reference number<br>
+          <strong>DBR-{{ "now" | date('YYYYMMDD') }}-{{ range(1000, 9999) | random }}</strong>
+        </div>
+      </div>
+      
+      <h2 class="nhsuk-heading-m">What happens next</h2>
+      
+      <p>We've received your dashboard request and will process it according to the following timeline:</p>
+      
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading">Processing timeline</h3>
+          <ul>
+            <li>Initial review: <strong>1-3 working days</strong></li>
+            <li>Requirements gathering: <strong>5-10 working days</strong></li>
+            <li>Development and testing: <strong>10-20 working days</strong> (depending on complexity)</li>
+            <li>User acceptance testing: <strong>5 working days</strong></li>
+          </ul>
+          <p>Total estimated time: <strong>21-38 working days</strong></p>
+        </div>
+      </div>
+      
+      <p>You will receive an email confirmation with details of your request to your NHS email address. A member of our team will contact you to discuss your requirements in more detail.</p>
+      
+      <h2 class="nhsuk-heading-m">Request summary</h2>
+      
+      <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Business area
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Pharmaceutical
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Dashboard title
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Prescribing Trends Analysis
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Email
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            jane.doe@nhs.net
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Organisation
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            NHS England
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Urgency
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Medium - needed within 1 month
+          </dd>
+        </div>
+      </dl>
+      
+      <h2 class="nhsuk-heading-m">Contact us</h2>
+      
+      <p>If you have any questions about your request, please contact the Data Hub team:</p>
+      
+      <ul>
+        <li>Email: <a href="#">datahub@nhsbsa.nhs.uk</a></li>
+        <li>Phone: 0300 330 1348</li>
+      </ul>
+      
+      <p>Please quote your reference number when contacting us.</p>
+      
+      <p><a href="/">Return to the Data Hub homepage</a></p>
+    </div>
+  </div>
+{% endblock %}

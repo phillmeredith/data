@@ -1,0 +1,158 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Provider Assurance Data - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/areas/provider-assurance",
+    text: "Provider Assurance"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">Provider Assurance Data</h1>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <p class="nhsuk-body-l">Access Provider Assurance data, systems and dashboards from the NHS Business Services Authority. This area provides information on healthcare provider performance, contract compliance, and quality assurance across NHS services.</p>
+        </div>
+      </div>
+
+      <!-- Key Systems Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Key Systems</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Provider Assurance Portal</h3>
+              <p>Access comprehensive provider performance data and compliance monitoring tools.</p>
+              <p>Use this system to:</p>
+              <ul>
+                <li>Monitor provider contract compliance</li>
+                <li>Track quality indicators across services</li>
+                <li>Identify areas for improvement</li>
+              </ul>
+              <a href="/access/system" class="nhsuk-button">Request Access</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Contract Management System</h3>
+              <p>Manage and monitor healthcare provider contracts and performance agreements.</p>
+              <p>Use this system to:</p>
+              <ul>
+                <li>Review contract terms and conditions</li>
+                <li>Monitor performance against contractual obligations</li>
+                <li>Track payment schedules and financial compliance</li>
+              </ul>
+              <a href="/access/system" class="nhsuk-button">Request Access</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Datasets Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Available Datasets</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Provider Performance Metrics</h3>
+              <p>Comprehensive performance data for healthcare providers, including quality indicators and compliance metrics.</p>
+              <p>Updated: Monthly</p>
+              <a href="/datasets/provider-performance" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Contract Compliance Data</h3>
+              <p>Data on provider compliance with contractual obligations and service level agreements.</p>
+              <p>Updated: Quarterly</p>
+              <a href="/datasets/contract-compliance" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Financial Assurance Data</h3>
+              <p>Financial performance and payment data for healthcare providers across NHS services.</p>
+              <p>Updated: Monthly</p>
+              <a href="/datasets/financial-assurance" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboards Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Dashboards</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Provider Performance Dashboard</h3>
+              <p>Interactive dashboard showing provider performance against key indicators and benchmarks.</p>
+              <a href="/dashboards/provider-performance" class="nhsuk-button">View Dashboard</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Contract Compliance Monitoring</h3>
+              <p>Dashboard for monitoring provider compliance with contractual obligations and service level agreements.</p>
+              <a href="/dashboards/contract-compliance" class="nhsuk-button">View Dashboard</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Use Case Examples</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Improving Service Quality</h3>
+              <p>An Integrated Care Board used provider performance data to identify areas for improvement in community services, resulting in a 30% reduction in waiting times and improved patient satisfaction scores.</p>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Contract Optimization</h3>
+              <p>NHS England used contract compliance data to identify opportunities for contract optimization, leading to improved value for money and service delivery across multiple providers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Request Data Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Need Something Specific?</h2>
+          <p>If you can't find what you need in our existing datasets or dashboards, you can submit a custom data request.</p>
+          <a href="/request-data" class="nhsuk-button">Request Data</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

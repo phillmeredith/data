@@ -1,0 +1,62 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Request Data - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/request-data",
+    text: "Request Data"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">Request Data</h1>
+      
+      <p class="nhsuk-body-l">Use this service to request data from the NHS Business Services Authority.</p>
+      
+      <p>You can use this service to:</p>
+      <ul>
+        <li>Request specific datasets</li>
+        <li>Define custom data requirements</li>
+        <li>Specify output formats and delivery methods</li>
+        <li>Track the status of your requests</li>
+      </ul>
+      
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>All data requests are subject to approval and data governance requirements. Sensitive or identifiable data may require additional approvals.</p>
+      </div>
+      
+      {{ button({
+        "text": "Start now",
+        "href": "/request-data/purpose"
+      }) }}
+      
+      <h2 class="nhsuk-heading-m">Before you start</h2>
+      
+      <p>You will need:</p>
+      <ul>
+        <li>Your NHS email address</li>
+        <li>Information about the data you require</li>
+        <li>Details of how you intend to use the data</li>
+        <li>Any specific time periods or geographical areas you're interested in</li>
+      </ul>
+      
+      <p>The request process takes approximately 5-10 minutes to complete.</p>
+    </div>
+  </div>
+{% endblock %}

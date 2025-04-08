@@ -1,0 +1,122 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Confirmation - Dataset Access Request - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/access/dataset",
+        text: "Dataset Access Request"
+      }
+    ],
+    href: "/access/dataset/confirmation",
+    text: "Confirmation"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-panel nhsuk-panel--confirmation nhsuk-u-margin-bottom-4">
+        <h1 class="nhsuk-panel__title">
+          Dataset access request submitted
+        </h1>
+        <div class="nhsuk-panel__body">
+          Your reference number<br>
+          <strong>DAR-{{ "now" | date('YYYYMMDD') }}-{{ range(1000, 9999) | random }}</strong>
+        </div>
+      </div>
+      
+      <h2 class="nhsuk-heading-m">What happens next</h2>
+      
+      <p>We've received your dataset access request and will process it according to the following timeline:</p>
+      
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading">Processing timeline</h3>
+          <ul>
+            <li>Initial review: <strong>1-2 working days</strong></li>
+            <li>Data governance check: <strong>2-3 working days</strong></li>
+            <li>Access provision: <strong>1-2 working days</strong> after approval</li>
+          </ul>
+          <p>Total estimated time: <strong>4-7 working days</strong></p>
+        </div>
+      </div>
+      
+      <p>You will receive an email confirmation with details of your request to your NHS email address.</p>
+      
+      <h2 class="nhsuk-heading-m">Request summary</h2>
+      
+      <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Dataset
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Practice Prescribing Data
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Purpose
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Analysis and reporting
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Email
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            jane.doe@nhs.net
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Organisation
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            NHS England
+          </dd>
+        </div>
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            IG training completed
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            Yes
+          </dd>
+        </div>
+      </dl>
+      
+      <h2 class="nhsuk-heading-m">Contact us</h2>
+      
+      <p>If you have any questions about your request, please contact the Data Hub team:</p>
+      
+      <ul>
+        <li>Email: <a href="#">datahub@nhsbsa.nhs.uk</a></li>
+        <li>Phone: 0300 330 1348</li>
+      </ul>
+      
+      <p>Please quote your reference number when contacting us.</p>
+      
+      <p><a href="/">Return to the Data Hub homepage</a></p>
+    </div>
+  </div>
+{% endblock %}

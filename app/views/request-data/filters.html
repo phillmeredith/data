@@ -1,0 +1,220 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Define Filters - Request Data - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/request-data",
+        text: "Request Data"
+      },
+      {
+        href: "/request-data/purpose",
+        text: "Select Purpose"
+      },
+      {
+        href: "/request-data/datasets",
+        text: "Select Datasets"
+      }
+    ],
+    href: "/request-data/filters",
+    text: "Define Filters"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/request-data/output-format" method="post">
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Define filters for your data request
+              </h1>
+            </legend>
+            
+            <div class="nhsuk-hint">
+              <p>Specify the parameters to filter the data you've requested. This helps us provide you with the most relevant information.</p>
+            </div>
+            
+            <!-- Time Period Section -->
+            <div class="nhsuk-form-group">
+              <fieldset class="nhsuk-fieldset" aria-describedby="time-period-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                  <h2 class="nhsuk-fieldset__heading">
+                    Time period
+                  </h2>
+                </legend>
+                
+                <div class="nhsuk-hint" id="time-period-hint">
+                  <p>Select the time period for which you need data</p>
+                </div>
+                
+                <div class="nhsuk-radios">
+                  <div class="nhsuk-radios__item">
+                    <input class="nhsuk-radios__input" id="time-period-1" name="time-period" type="radio" value="last-month">
+                    <label class="nhsuk-label nhsuk-radios__label" for="time-period-1">
+                      Last month
+                    </label>
+                  </div>
+                  
+                  <div class="nhsuk-radios__item">
+                    <input class="nhsuk-radios__input" id="time-period-2" name="time-period" type="radio" value="last-quarter">
+                    <label class="nhsuk-label nhsuk-radios__label" for="time-period-2">
+                      Last quarter
+                    </label>
+                  </div>
+                  
+                  <div class="nhsuk-radios__item">
+                    <input class="nhsuk-radios__input" id="time-period-3" name="time-period" type="radio" value="last-year">
+                    <label class="nhsuk-label nhsuk-radios__label" for="time-period-3">
+                      Last year
+                    </label>
+                  </div>
+                  
+                  <div class="nhsuk-radios__item">
+                    <input class="nhsuk-radios__input" id="time-period-4" name="time-period" type="radio" value="custom" aria-controls="conditional-time-period-4">
+                    <label class="nhsuk-label nhsuk-radios__label" for="time-period-4">
+                      Custom date range
+                    </label>
+                  </div>
+                  
+                  <div class="nhsuk-radios__conditional" id="conditional-time-period-4">
+                    <div class="nhsuk-form-group">
+                      <label class="nhsuk-label" for="time-period-from">
+                        From
+                      </label>
+                      <input class="nhsuk-input nhsuk-input--width-10" id="time-period-from" name="time-period-from" type="date">
+                    </div>
+                    
+                    <div class="nhsuk-form-group">
+                      <label class="nhsuk-label" for="time-period-to">
+                        To
+                      </label>
+                      <input class="nhsuk-input nhsuk-input--width-10" id="time-period-to" name="time-period-to" type="date">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            
+            <!-- Geography Section -->
+            <div class="nhsuk-form-group">
+              <fieldset class="nhsuk-fieldset" aria-describedby="geography-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                  <h2 class="nhsuk-fieldset__heading">
+                    Geography
+                  </h2>
+                </legend>
+                
+                <div class="nhsuk-hint" id="geography-hint">
+                  <p>Select the geographical areas for which you need data</p>
+                </div>
+                
+                <div class="nhsuk-checkboxes">
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="geography-1" name="geography" type="checkbox" value="national">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="geography-1">
+                      National (England)
+                    </label>
+                  </div>
+                  
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="geography-2" name="geography" type="checkbox" value="regional">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="geography-2">
+                      Regional
+                    </label>
+                  </div>
+                  
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="geography-3" name="geography" type="checkbox" value="icb">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="geography-3">
+                      Integrated Care Board (ICB)
+                    </label>
+                  </div>
+                  
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="geography-4" name="geography" type="checkbox" value="local-authority">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="geography-4">
+                      Local Authority
+                    </label>
+                  </div>
+                  
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="geography-5" name="geography" type="checkbox" value="practice">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="geography-5">
+                      GP Practice
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            
+            <!-- Organisation Section -->
+            <div class="nhsuk-form-group">
+              <fieldset class="nhsuk-fieldset" aria-describedby="organisation-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                  <h2 class="nhsuk-fieldset__heading">
+                    Organisation
+                  </h2>
+                </legend>
+                
+                <div class="nhsuk-hint" id="organisation-hint">
+                  <p>Specify any particular organisations you want to include</p>
+                </div>
+                
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label" for="organisation-details">
+                    Organisation details
+                  </label>
+                  <textarea class="nhsuk-textarea" id="organisation-details" name="organisation-details" rows="3" aria-describedby="organisation-details-hint"></textarea>
+                  <div class="nhsuk-hint" id="organisation-details-hint">
+                    <p>Enter organisation codes or names, separated by commas</p>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            
+            <!-- Additional Filters Section -->
+            <div class="nhsuk-form-group">
+              <fieldset class="nhsuk-fieldset" aria-describedby="additional-filters-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+                  <h2 class="nhsuk-fieldset__heading">
+                    Additional filters
+                  </h2>
+                </legend>
+                
+                <div class="nhsuk-hint" id="additional-filters-hint">
+                  <p>Specify any other filters or parameters for your data request</p>
+                </div>
+                
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label" for="additional-filters">
+                    Additional filter details
+                  </label>
+                  <textarea class="nhsuk-textarea" id="additional-filters" name="additional-filters" rows="5" aria-describedby="additional-filters-hint"></textarea>
+                </div>
+              </fieldset>
+            </div>
+          </fieldset>
+        </div>
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

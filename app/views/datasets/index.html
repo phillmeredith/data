@@ -1,0 +1,318 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Datasets - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/datasets",
+    text: "Datasets"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">Datasets</h1>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <p class="nhsuk-body-l">Explore available datasets from the NHS Business Services Authority. These datasets provide valuable information on prescribing, healthcare services, and provider performance.</p>
+        </div>
+        
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="dataset-search">
+              Search datasets
+            </label>
+            <input class="nhsuk-input" id="dataset-search" name="dataset-search" type="text">
+            <button class="nhsuk-button" type="submit">Search</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-quarter">
+          <div class="nhsuk-filter-group">
+            <h2 class="nhsuk-heading-s">Filter by area</h2>
+            <ul class="nhsuk-list">
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="area-1" name="area" type="checkbox" value="pharmaceutical">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="area-1">
+                    Pharmaceutical
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="area-2" name="area" type="checkbox" value="gp">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="area-2">
+                    General Practice
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="area-3" name="area" type="checkbox" value="dental">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="area-3">
+                    Dental
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="area-4" name="area" type="checkbox" value="provider-assurance">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="area-4">
+                    Provider Assurance
+                  </label>
+                </div>
+              </li>
+            </ul>
+            
+            <h2 class="nhsuk-heading-s">Filter by update frequency</h2>
+            <ul class="nhsuk-list">
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="frequency-1" name="frequency" type="checkbox" value="daily">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="frequency-1">
+                    Daily
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="frequency-2" name="frequency" type="checkbox" value="weekly">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="frequency-2">
+                    Weekly
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="frequency-3" name="frequency" type="checkbox" value="monthly">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="frequency-3">
+                    Monthly
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="frequency-4" name="frequency" type="checkbox" value="quarterly">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="frequency-4">
+                    Quarterly
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="frequency-5" name="frequency" type="checkbox" value="annually">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="frequency-5">
+                    Annually
+                  </label>
+                </div>
+              </li>
+            </ul>
+            
+            <button class="nhsuk-button" type="submit">Apply filters</button>
+          </div>
+        </div>
+        
+        <div class="nhsuk-grid-column-three-quarters">
+          <h2 class="nhsuk-heading-l">Available Datasets</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                <a href="/datasets/prescription-cost-analysis">Prescription Cost Analysis (PCA)</a>
+              </h3>
+              <p class="nhsuk-card__description">Details of all prescriptions dispensed in the community in England, including costs and quantities.</p>
+              <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Business Area
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Pharmaceutical
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Update Frequency
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Monthly
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Last Updated
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    1 April 2025
+                  </dd>
+                </div>
+              </dl>
+              <a href="/datasets/prescription-cost-analysis" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                <a href="/datasets/gp-prescribing">GP Practice Prescribing Data</a>
+              </h3>
+              <p class="nhsuk-card__description">Monthly prescribing data at GP practice level, including items, costs, and BNF categories.</p>
+              <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Business Area
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    General Practice
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Update Frequency
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Monthly
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Last Updated
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    1 April 2025
+                  </dd>
+                </div>
+              </dl>
+              <a href="/datasets/gp-prescribing" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                <a href="/datasets/pharmacy-contractor">Pharmacy Contractor Activity</a>
+              </h3>
+              <p class="nhsuk-card__description">Data on pharmacy contractor activity, including dispensing volumes and service provision.</p>
+              <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Business Area
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Pharmaceutical
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Update Frequency
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Quarterly
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Last Updated
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    31 March 2025
+                  </dd>
+                </div>
+              </dl>
+              <a href="/datasets/pharmacy-contractor" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                <a href="/datasets/provider-performance">Provider Performance Metrics</a>
+              </h3>
+              <p class="nhsuk-card__description">Comprehensive performance data for healthcare providers, including quality indicators and compliance metrics.</p>
+              <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Business Area
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Provider Assurance
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Update Frequency
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Monthly
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Last Updated
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    15 March 2025
+                  </dd>
+                </div>
+              </dl>
+              <a href="/datasets/provider-performance" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">
+                <a href="/datasets/dental-activity">Dental Activity Data</a>
+              </h3>
+              <p class="nhsuk-card__description">Data on NHS dental activity, including UDAs delivered, patient access, and contract performance.</p>
+              <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Business Area
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Dental
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Update Frequency
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Quarterly
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Last Updated
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    31 March 2025
+                  </dd>
+                </div>
+              </dl>
+              <a href="/datasets/dental-activity" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

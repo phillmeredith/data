@@ -1,0 +1,224 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">NHS Business Services Authority<br>Data Hub</h1>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <p class="nhsuk-body-l">Your central access point for exploring and using data from the NHS Business Services Authority. The Data Hub is your go-to platform for ensuring you can effectively work with NHSBSA data, unlocking its potential to drive better decisions and outcomes across the health and care system</p>
+          
+          <!-- Search bar -->
+          <div class="nhsuk-form-group">
+            <form class="nhsuk-header__search-form" id="search" action="/search" method="get" role="search">
+              <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
+              <div class="nhsuk-header__search-wrap">
+                <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
+                <button class="nhsuk-search__submit" type="submit">
+                  <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                  </svg>
+                  <span class="nhsuk-u-visually-hidden">Search</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular on Data Hub section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Popular on Data Hub</h2>
+          
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/areas/pharmaceutical">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Pharmaceutical</h3>
+                    <p class="nhsuk-card__description">Access pharmaceutical data, systems and dashboards</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/areas/ophthalmic">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Ophthalmic</h3>
+                    <p class="nhsuk-card__description">Access ophthalmic data, systems and dashboards</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/areas/gp">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">General Practice (GP)</h3>
+                    <p class="nhsuk-card__description">Access GP data, systems and dashboards</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/areas/dental">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Dental</h3>
+                    <p class="nhsuk-card__description">Access dental data, systems and dashboards</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/areas/provider-assurance">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Provider Assurance</h3>
+                    <p class="nhsuk-card__description">Access provider assurance data, systems and dashboards</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/open-data-portal">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Open Data Portal</h3>
+                    <p class="nhsuk-card__description">Access publicly available NHSBSA datasets</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services and information section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Services and information</h2>
+          
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/request-data">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Create a data request</h3>
+                    <p class="nhsuk-card__description">Submit a request for data you require in a format that suits you.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/datasets">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Explore our data</h3>
+                    <p class="nhsuk-card__description">Explore detailed information on available NHSBSA data sources.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/manage">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Manage your data</h3>
+                    <p class="nhsuk-card__description">Find resources for maintaining and improving existing data products.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/policies">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Data Policies, Standards & Frameworks</h3>
+                    <p class="nhsuk-card__description">Resources to help you create high-quality, user-focused data products.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/about">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Read about the data hub</h3>
+                    <p class="nhsuk-card__description">Learn what the data hub has to offer, what you can access and how.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <div class="nhsuk-grid-column-one-third">
+              <div class="nhsuk-card">
+                <a class="nhsuk-card--clickable" href="/communities">
+                  <div class="nhsuk-card__content">
+                    <h3 class="nhsuk-card__heading">Our Communities</h3>
+                    <p class="nhsuk-card__description">Connect with data communities and find support for your data needs.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Latest Data Hub News section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Latest Data Hub News</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">News Heading about the something in the Data Hub</h3>
+              <p class="nhsuk-card__description">Posted: 8 April 2025</p>
+              <p><a href="/news/1">Read post</a></p>
+            </div>
+          </div>
+          
+          <p><a href="/news">View all data hub news</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,186 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Dashboards - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/dashboards",
+    text: "Dashboards"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">Dashboards</h1>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <p class="nhsuk-body-l">Explore interactive dashboards from the NHS Business Services Authority. These dashboards provide visual insights into prescribing patterns, healthcare services, and provider performance.</p>
+        </div>
+        
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-action-link">
+            <a class="nhsuk-action-link__link" href="/access/dashboard">
+              <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+              </svg>
+              <span class="nhsuk-action-link__text">Request a new dashboard</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-quarter">
+          <div class="nhsuk-filter-group">
+            <h2 class="nhsuk-heading-s">Filter by area</h2>
+            <ul class="nhsuk-list">
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="area-1" name="area" type="checkbox" value="pharmaceutical">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="area-1">
+                    Pharmaceutical
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="area-2" name="area" type="checkbox" value="gp">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="area-2">
+                    General Practice
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="area-3" name="area" type="checkbox" value="dental">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="area-3">
+                    Dental
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="area-4" name="area" type="checkbox" value="provider-assurance">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="area-4">
+                    Provider Assurance
+                  </label>
+                </div>
+              </li>
+            </ul>
+            
+            <button class="nhsuk-button" type="submit">Apply filters</button>
+          </div>
+        </div>
+        
+        <div class="nhsuk-grid-column-three-quarters">
+          <h2 class="nhsuk-heading-l">Available Dashboards</h2>
+          
+          <div class="nhsuk-grid-row nhsuk-card-group">
+            <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              <div class="nhsuk-card">
+                <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/A_0218_prescriptions-drugs_A57RKM.width-690.jpg" alt="Medicines Optimisation Dashboard preview">
+                <div class="nhsuk-card__content">
+                  <h3 class="nhsuk-card__heading">
+                    <a href="/dashboards/medicines-optimisation">Medicines Optimisation Dashboard</a>
+                  </h3>
+                  <p class="nhsuk-card__description">Interactive dashboard showing prescribing patterns, costs, and opportunities for optimization.</p>
+                  <p class="nhsuk-card__description"><strong>Business Area:</strong> Pharmaceutical</p>
+                  <p class="nhsuk-card__description"><strong>Last Updated:</strong> 1 April 2025</p>
+                  <a href="/dashboards/medicines-optimisation" class="nhsuk-button">View Dashboard</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              <div class="nhsuk-card">
+                <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/S_0818_doctor-patient-consultation_RTH8EF.width-690.jpg" alt="GP Practice Performance Dashboard preview">
+                <div class="nhsuk-card__content">
+                  <h3 class="nhsuk-card__heading">
+                    <a href="/dashboards/gp-performance">GP Practice Performance Dashboard</a>
+                  </h3>
+                  <p class="nhsuk-card__description">Dashboard for monitoring practice performance against key indicators and benchmarks.</p>
+                  <p class="nhsuk-card__description"><strong>Business Area:</strong> General Practice</p>
+                  <p class="nhsuk-card__description"><strong>Last Updated:</strong> 31 March 2025</p>
+                  <a href="/dashboards/gp-performance" class="nhsuk-button">View Dashboard</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="nhsuk-grid-row nhsuk-card-group">
+            <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              <div class="nhsuk-card">
+                <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/S_0818_pills-drugs-medication_RTH8EF.width-690.jpg" alt="Controlled Drugs Monitoring Dashboard preview">
+                <div class="nhsuk-card__content">
+                  <h3 class="nhsuk-card__heading">
+                    <a href="/dashboards/controlled-drugs">Controlled Drugs Monitoring Dashboard</a>
+                  </h3>
+                  <p class="nhsuk-card__description">Dashboard for monitoring prescribing of controlled drugs across different regions and organizations.</p>
+                  <p class="nhsuk-card__description"><strong>Business Area:</strong> Pharmaceutical</p>
+                  <p class="nhsuk-card__description"><strong>Last Updated:</strong> 15 March 2025</p>
+                  <a href="/dashboards/controlled-drugs" class="nhsuk-button">View Dashboard</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              <div class="nhsuk-card">
+                <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/S_0818_dentist_RTH8EF.width-690.jpg" alt="Dental Contract Performance Dashboard preview">
+                <div class="nhsuk-card__content">
+                  <h3 class="nhsuk-card__heading">
+                    <a href="/dashboards/dental-performance">Dental Contract Performance Dashboard</a>
+                  </h3>
+                  <p class="nhsuk-card__description">Dashboard showing dental contract delivery, UDA achievement, and patient access metrics.</p>
+                  <p class="nhsuk-card__description"><strong>Business Area:</strong> Dental</p>
+                  <p class="nhsuk-card__description"><strong>Last Updated:</strong> 31 March 2025</p>
+                  <a href="/dashboards/dental-performance" class="nhsuk-button">View Dashboard</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="nhsuk-grid-row nhsuk-card-group">
+            <div class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              <div class="nhsuk-card">
+                <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/S_0818_hospital_RTH8EF.width-690.jpg" alt="Provider Assurance Dashboard preview">
+                <div class="nhsuk-card__content">
+                  <h3 class="nhsuk-card__heading">
+                    <a href="/dashboards/provider-performance">Provider Performance Dashboard</a>
+                  </h3>
+                  <p class="nhsuk-card__description">Interactive dashboard showing provider performance against key indicators and benchmarks.</p>
+                  <p class="nhsuk-card__description"><strong>Business Area:</strong> Provider Assurance</p>
+                  <p class="nhsuk-card__description"><strong>Last Updated:</strong> 15 March 2025</p>
+                  <a href="/dashboards/provider-performance" class="nhsuk-button">View Dashboard</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <div class="nhsuk-inset-text">
+            <span class="nhsuk-u-visually-hidden">Information: </span>
+            <p>All dashboards require appropriate access permissions. If you need access to a dashboard, please use the "Request Access" button on the dashboard page.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

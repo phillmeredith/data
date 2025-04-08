@@ -1,0 +1,178 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Select Datasets - Request Data - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/request-data",
+        text: "Request Data"
+      },
+      {
+        href: "/request-data/purpose",
+        text: "Select Purpose"
+      }
+    ],
+    href: "/request-data/datasets",
+    text: "Select Datasets"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/request-data/filters" method="post">
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset" aria-describedby="datasets-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Which datasets do you require?
+              </h1>
+            </legend>
+            
+            <div class="nhsuk-hint" id="datasets-hint">
+              <p>Select all datasets that you need for your request. You can select multiple datasets.</p>
+            </div>
+            
+            <h2 class="nhsuk-heading-m">Pharmaceutical Data</h2>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="dataset-1" name="datasets" type="checkbox" value="prescription-cost-analysis">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="dataset-1">
+                  Prescription Cost Analysis (PCA)
+                </label>
+                <div class="nhsuk-hint nhsuk-checkboxes__hint">
+                  Details of prescriptions dispensed in the community in England
+                </div>
+              </div>
+              
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="dataset-2" name="datasets" type="checkbox" value="practice-prescribing">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="dataset-2">
+                  Practice Prescribing Data
+                </label>
+                <div class="nhsuk-hint nhsuk-checkboxes__hint">
+                  Prescribing data at GP practice level
+                </div>
+              </div>
+              
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="dataset-3" name="datasets" type="checkbox" value="pharmacy-contractor">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="dataset-3">
+                  Pharmacy Contractor Activity
+                </label>
+                <div class="nhsuk-hint nhsuk-checkboxes__hint">
+                  Data on pharmacy contractor activity
+                </div>
+              </div>
+            </div>
+            
+            <h2 class="nhsuk-heading-m">General Practice Data</h2>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="dataset-4" name="datasets" type="checkbox" value="gp-prescribing">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="dataset-4">
+                  GP Practice Prescribing Data
+                </label>
+                <div class="nhsuk-hint nhsuk-checkboxes__hint">
+                  Monthly prescribing data at practice level
+                </div>
+              </div>
+              
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="dataset-5" name="datasets" type="checkbox" value="gp-demographics">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="dataset-5">
+                  GP Demographics
+                </label>
+                <div class="nhsuk-hint nhsuk-checkboxes__hint">
+                  Patient demographic data by GP practice
+                </div>
+              </div>
+              
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="dataset-6" name="datasets" type="checkbox" value="gp-qof">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="dataset-6">
+                  GP Quality Outcomes Framework
+                </label>
+                <div class="nhsuk-hint nhsuk-checkboxes__hint">
+                  Performance data against QOF indicators
+                </div>
+              </div>
+            </div>
+            
+            <h2 class="nhsuk-heading-m">Provider Assurance Data</h2>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="dataset-7" name="datasets" type="checkbox" value="provider-performance">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="dataset-7">
+                  Provider Performance Metrics
+                </label>
+                <div class="nhsuk-hint nhsuk-checkboxes__hint">
+                  Comprehensive performance data for healthcare providers
+                </div>
+              </div>
+              
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="dataset-8" name="datasets" type="checkbox" value="contract-compliance">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="dataset-8">
+                  Contract Compliance Data
+                </label>
+                <div class="nhsuk-hint nhsuk-checkboxes__hint">
+                  Data on provider compliance with contractual obligations
+                </div>
+              </div>
+              
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="dataset-9" name="datasets" type="checkbox" value="financial-assurance">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="dataset-9">
+                  Financial Assurance Data
+                </label>
+                <div class="nhsuk-hint nhsuk-checkboxes__hint">
+                  Financial performance and payment data for healthcare providers
+                </div>
+              </div>
+            </div>
+            
+            <h2 class="nhsuk-heading-m">Other</h2>
+            <div class="nhsuk-checkboxes">
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="dataset-10" name="datasets" type="checkbox" value="custom">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="dataset-10">
+                  Custom dataset requirement
+                </label>
+                <div class="nhsuk-hint nhsuk-checkboxes__hint">
+                  Please specify in the additional information section
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="dataset-details">
+            Additional dataset details (optional)
+          </label>
+          <div class="nhsuk-hint">
+            <p>Provide any specific details about the datasets you require or describe custom dataset needs</p>
+          </div>
+          <textarea class="nhsuk-textarea" id="dataset-details" name="dataset-details" rows="5" aria-describedby="dataset-details-hint"></textarea>
+        </div>
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,164 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Manage Your Data - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/manage",
+    text: "Manage Your Data"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">Manage Your Data</h1>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <p class="nhsuk-body-l">Find resources for maintaining and improving existing data products. This section provides templates, quality standards, and guidance to help you create high-quality, user-focused data products.</p>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">
+                <a href="#">Data Templates</a>
+              </h2>
+              <p class="nhsuk-card__description">Standardized templates for data products and outputs</p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li><a href="#">Data Dictionary Template</a></li>
+                <li><a href="#">Dataset Specification Template</a></li>
+                <li><a href="#">Data Quality Report Template</a></li>
+                <li><a href="#">Dashboard Requirements Template</a></li>
+                <li><a href="#">Data Flow Diagram Template</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">
+                <a href="#">Quality Standards</a>
+              </h2>
+              <p class="nhsuk-card__description">Standards and best practices for data quality</p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li><a href="#">NHSBSA Data Quality Framework</a></li>
+                <li><a href="#">Data Quality Dimensions Guide</a></li>
+                <li><a href="#">Data Validation Checklist</a></li>
+                <li><a href="#">Data Cleansing Guidelines</a></li>
+                <li><a href="#">Metadata Standards</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">
+                <a href="#">Audit Checklists</a>
+              </h2>
+              <p class="nhsuk-card__description">Tools for auditing and reviewing data products</p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li><a href="#">Data Product Audit Checklist</a></li>
+                <li><a href="#">Dashboard Review Checklist</a></li>
+                <li><a href="#">Data Governance Compliance Checklist</a></li>
+                <li><a href="#">Data Security Audit Checklist</a></li>
+                <li><a href="#">User Experience Review Template</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">
+                <a href="#">Data Governance</a>
+              </h2>
+              <p class="nhsuk-card__description">Guidance on data governance and management</p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li><a href="#">Data Ownership Guidelines</a></li>
+                <li><a href="#">Data Stewardship Responsibilities</a></li>
+                <li><a href="#">Data Lifecycle Management</a></li>
+                <li><a href="#">Data Retention Policy</a></li>
+                <li><a href="#">Data Classification Guide</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">
+                <a href="#">Data Visualization</a>
+              </h2>
+              <p class="nhsuk-card__description">Best practices for data visualization</p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li><a href="#">NHSBSA Visualization Style Guide</a></li>
+                <li><a href="#">Chart Selection Guide</a></li>
+                <li><a href="#">Accessibility in Data Visualization</a></li>
+                <li><a href="#">Color Palette and Usage</a></li>
+                <li><a href="#">Dashboard Design Principles</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">
+                <a href="#">Training Resources</a>
+              </h2>
+              <p class="nhsuk-card__description">Training materials for data management</p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li><a href="#">Data Quality Training</a></li>
+                <li><a href="#">Information Governance Training</a></li>
+                <li><a href="#">Data Analysis Tools Training</a></li>
+                <li><a href="#">Dashboard Creation Workshop</a></li>
+                <li><a href="#">Data Storytelling Course</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">Need Help?</h2>
+              <p>If you need assistance with managing your data products or have questions about the resources available, please contact the Data Hub team:</p>
+              <ul class="nhsuk-list">
+                <li>Email: <a href="#">datahub@nhsbsa.nhs.uk</a></li>
+                <li>Phone: 0300 330 1348</li>
+              </ul>
+              <p>The team is available Monday to Friday, 9am to 5pm.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

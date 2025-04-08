@@ -1,0 +1,149 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  About the Data Hub - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/about",
+    text: "About"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">About the Data Hub</h1>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <p class="nhsuk-body-l">The NHS Business Services Authority (NHSBSA) Data Hub is your central access point for exploring and using data from the NHSBSA. Learn what the Data Hub has to offer, what you can access, and how it can help you make better decisions.</p>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <h2 class="nhsuk-heading-l">What is the Data Hub?</h2>
+          <p>The NHSBSA Data Hub is a platform designed to provide NHS staff and approved partners with access to valuable data and insights from the NHS Business Services Authority. It serves as a single point of access for:</p>
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Exploring available datasets and their metadata</li>
+            <li>Accessing interactive dashboards and visualizations</li>
+            <li>Requesting custom data extracts and analyses</li>
+            <li>Requesting access to systems and datasets</li>
+            <li>Finding resources, templates, and standards for data management</li>
+          </ul>
+          
+          <p>The Data Hub aims to unlock the potential of NHSBSA data, making it more accessible and usable for driving better decisions and outcomes across the health and care system.</p>
+          
+          <h2 class="nhsuk-heading-l">Our Mission</h2>
+          <p>Our mission is to transform NHSBSA data into actionable insights that improve health outcomes, enhance service delivery, and drive efficiency across the NHS. We believe that by making data more accessible and usable, we can:</p>
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Support evidence-based decision making at all levels</li>
+            <li>Identify opportunities for service improvement and cost savings</li>
+            <li>Enable innovation and research in healthcare</li>
+            <li>Promote transparency and accountability</li>
+            <li>Empower NHS staff with the information they need to deliver better care</li>
+          </ul>
+          
+          <h2 class="nhsuk-heading-l">How the Data Hub Works</h2>
+          <p>The Data Hub provides a user-friendly interface for accessing and working with NHSBSA data. It brings together data from various NHSBSA systems and services, including:</p>
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>Prescription Services</li>
+            <li>Dental Services</li>
+            <li>NHS Pensions</li>
+            <li>Help with Health Costs</li>
+            <li>Provider Assurance</li>
+            <li>HR Shared Services</li>
+          </ul>
+          
+          <p>Users can browse available datasets, access interactive dashboards, request custom data extracts, and find resources to help them work effectively with data. The Data Hub also provides a streamlined process for requesting access to systems and datasets, ensuring that users can get the data they need while maintaining appropriate governance and security.</p>
+          
+          <h2 class="nhsuk-heading-l">Who Can Use the Data Hub?</h2>
+          <p>The Data Hub is available to:</p>
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>NHS staff (with an NHS.net or NHS.uk email address)</li>
+            <li>Integrated Care Boards (ICBs)</li>
+            <li>NHS Trusts and Foundation Trusts</li>
+            <li>NHS England</li>
+            <li>Department of Health and Social Care</li>
+            <li>Approved research partners (subject to data sharing agreements)</li>
+          </ul>
+          
+          <p>Access to specific datasets and systems is subject to approval based on role, organization, and purpose.</p>
+        </div>
+        
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">Key Facts</h2>
+              <ul class="nhsuk-list">
+                <li><strong>Launched:</strong> April 2025</li>
+                <li><strong>Datasets available:</strong> 50+</li>
+                <li><strong>Dashboards:</strong> 20+</li>
+                <li><strong>Systems:</strong> 10+</li>
+                <li><strong>Users:</strong> 5,000+ NHS staff</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">Contact Us</h2>
+              <p>For questions about the Data Hub:</p>
+              <ul class="nhsuk-list">
+                <li>Email: <a href="#">datahub@nhsbsa.nhs.uk</a></li>
+                <li>Phone: 0300 330 1348</li>
+                <li>Hours: Monday to Friday, 9am to 5pm</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">Quick Links</h2>
+              <ul class="nhsuk-list">
+                <li><a href="/request-data">Request Data</a></li>
+                <li><a href="/access/system">Request System Access</a></li>
+                <li><a href="/datasets">Explore Datasets</a></li>
+                <li><a href="/dashboards">View Dashboards</a></li>
+                <li><a href="/communities">Join Our Communities</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">How the Data Hub is Maintained</h2>
+          <p>The Data Hub is maintained by the NHSBSA Data Services team, working in collaboration with data owners across the organization. We follow a user-centered approach to development, continuously improving the platform based on user feedback and needs.</p>
+          
+          <p>The Data Hub is built using the <a href="https://service-manual.nhs.uk/design-system" target="_blank">NHS.UK Design System</a>, ensuring a consistent and accessible user experience that meets NHS standards.</p>
+          
+          <p>The code for the Data Hub is available on <a href="https://github.com/nhsbsa/data-hub" target="_blank">GitHub</a>, allowing for transparency and collaboration in its development.</p>
+          
+          <div class="nhsuk-action-link">
+            <a class="nhsuk-action-link__link" href="/communities">
+              <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+              </svg>
+              <span class="nhsuk-action-link__text">Join our user community</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

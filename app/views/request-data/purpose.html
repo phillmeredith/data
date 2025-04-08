@@ -1,0 +1,124 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Select Purpose - Request Data - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/request-data",
+        text: "Request Data"
+      }
+    ],
+    href: "/request-data/purpose",
+    text: "Select Purpose"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/request-data/datasets" method="post">
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                What is the purpose of your data request?
+              </h1>
+            </legend>
+            
+            <div class="nhsuk-hint">
+              <p>Select the primary purpose for which you need this data. This helps us prioritize and process your request appropriately.</p>
+            </div>
+            
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-1" name="purpose" type="radio" value="policy">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-1">
+                  Policy development
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  For developing or evaluating healthcare policies and strategies
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-2" name="purpose" type="radio" value="business-intelligence">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-2">
+                  Business intelligence
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  For operational reporting, performance monitoring, or trend analysis
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-3" name="purpose" type="radio" value="assurance">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-3">
+                  Assurance
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  For quality assurance, compliance monitoring, or governance purposes
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-4" name="purpose" type="radio" value="audit">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-4">
+                  Audit
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  For clinical or financial audits, or other formal review processes
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-5" name="purpose" type="radio" value="research">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-5">
+                  Research
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  For academic or clinical research projects (may require additional approvals)
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-6" name="purpose" type="radio" value="other">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-6">
+                  Other
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  Please specify in the additional information section
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="additional-info">
+            Additional information (optional)
+          </label>
+          <div class="nhsuk-hint">
+            <p>Provide any additional context about your data request purpose</p>
+          </div>
+          <textarea class="nhsuk-textarea" id="additional-info" name="additional-info" rows="5" aria-describedby="additional-info-hint"></textarea>
+        </div>
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

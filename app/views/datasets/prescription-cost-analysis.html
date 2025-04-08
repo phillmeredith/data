@@ -1,0 +1,216 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Prescription Cost Analysis (PCA) - Datasets - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/datasets",
+        text: "Datasets"
+      }
+    ],
+    href: "/datasets/prescription-cost-analysis",
+    text: "Prescription Cost Analysis (PCA)"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">Prescription Cost Analysis (PCA)</h1>
+      
+      <p class="nhsuk-body-l">Details of all prescriptions dispensed in the community in England, including costs and quantities.</p>
+      
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading">Dataset Overview</h2>
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Business Area
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Pharmaceutical
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Update Frequency
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Monthly
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Last Updated
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                1 April 2025
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Data Owner
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                NHS Business Services Authority
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Coverage
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                England
+              </dd>
+            </div>
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Time Period
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                April 2015 to present
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      
+      <h2 class="nhsuk-heading-l">Description</h2>
+      <p>The Prescription Cost Analysis (PCA) dataset provides detailed information on prescriptions dispensed in the community in England. It includes data on the number of items dispensed, the net ingredient cost, and the actual cost of prescriptions.</p>
+      <p>This dataset is useful for:</p>
+      <ul>
+        <li>Monitoring prescribing patterns and trends</li>
+        <li>Identifying cost-saving opportunities</li>
+        <li>Supporting formulary development and review</li>
+        <li>Informing commissioning decisions</li>
+        <li>Supporting research into prescribing behaviors</li>
+      </ul>
+      
+      <h2 class="nhsuk-heading-l">Sample Fields</h2>
+      <div class="nhsuk-table-responsive">
+        <table class="nhsuk-table">
+          <caption class="nhsuk-table__caption">Key fields available in this dataset</caption>
+          <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+              <th scope="col" class="nhsuk-table__header">Field Name</th>
+              <th scope="col" class="nhsuk-table__header">Description</th>
+              <th scope="col" class="nhsuk-table__header">Data Type</th>
+            </tr>
+          </thead>
+          <tbody class="nhsuk-table__body">
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">BNF_CODE</td>
+              <td class="nhsuk-table__cell">British National Formulary code</td>
+              <td class="nhsuk-table__cell">String</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">BNF_NAME</td>
+              <td class="nhsuk-table__cell">Name of the drug or appliance</td>
+              <td class="nhsuk-table__cell">String</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">ITEMS</td>
+              <td class="nhsuk-table__cell">Number of prescription items dispensed</td>
+              <td class="nhsuk-table__cell">Integer</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">NIC</td>
+              <td class="nhsuk-table__cell">Net ingredient cost (£)</td>
+              <td class="nhsuk-table__cell">Decimal</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">ACTUAL_COST</td>
+              <td class="nhsuk-table__cell">Actual cost to the NHS (£)</td>
+              <td class="nhsuk-table__cell">Decimal</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">QUANTITY</td>
+              <td class="nhsuk-table__cell">Quantity of drug dispensed</td>
+              <td class="nhsuk-table__cell">Decimal</td>
+            </tr>
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">YEAR_MONTH</td>
+              <td class="nhsuk-table__cell">Year and month of dispensing</td>
+              <td class="nhsuk-table__cell">Date</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <h2 class="nhsuk-heading-l">Access and Usage</h2>
+      <p>This dataset is available to NHS staff and approved researchers. Access is subject to data governance requirements and appropriate approvals.</p>
+      
+      <div class="nhsuk-action-link">
+        <a class="nhsuk-action-link__link" href="/access/dataset">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Request access to this dataset</span>
+        </a>
+      </div>
+      
+      <div class="nhsuk-action-link">
+        <a class="nhsuk-action-link__link" href="/request-data">
+          <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+          </svg>
+          <span class="nhsuk-action-link__text">Request custom data extract</span>
+        </a>
+      </div>
+    </div>
+    
+    <div class="nhsuk-grid-column-one-third">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading">Related Dashboards</h2>
+          <ul class="nhsuk-list">
+            <li>
+              <a href="/dashboards/medicines-optimisation">Medicines Optimisation Dashboard</a>
+            </li>
+            <li>
+              <a href="/dashboards/prescribing-trends">Prescribing Trends Dashboard</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading">Related Datasets</h2>
+          <ul class="nhsuk-list">
+            <li>
+              <a href="/datasets/gp-prescribing">GP Practice Prescribing Data</a>
+            </li>
+            <li>
+              <a href="/datasets/pharmacy-contractor">Pharmacy Contractor Activity</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading">Support</h2>
+          <p>For questions about this dataset, please contact:</p>
+          <p>Email: <a href="#">datahub@nhsbsa.nhs.uk</a></p>
+          <p>Phone: 0300 330 1348</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

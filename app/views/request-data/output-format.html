@@ -1,0 +1,194 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Output Format - Request Data - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/request-data",
+        text: "Request Data"
+      },
+      {
+        href: "/request-data/purpose",
+        text: "Select Purpose"
+      },
+      {
+        href: "/request-data/datasets",
+        text: "Select Datasets"
+      },
+      {
+        href: "/request-data/filters",
+        text: "Define Filters"
+      }
+    ],
+    href: "/request-data/output-format",
+    text: "Output Format"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/request-data/confirmation" method="post">
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Choose output format
+              </h1>
+            </legend>
+            
+            <div class="nhsuk-hint">
+              <p>Select how you would like to receive the requested data.</p>
+            </div>
+            
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="format-1" name="format" type="radio" value="csv">
+                <label class="nhsuk-label nhsuk-radios__label" for="format-1">
+                  CSV file
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  Comma-separated values file for use in spreadsheet applications
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="format-2" name="format" type="radio" value="excel">
+                <label class="nhsuk-label nhsuk-radios__label" for="format-2">
+                  Excel file
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  Microsoft Excel spreadsheet with formatted data
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="format-3" name="format" type="radio" value="dashboard">
+                <label class="nhsuk-label nhsuk-radios__label" for="format-3">
+                  Dashboard
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  Interactive dashboard with visualizations (requires additional approval)
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="format-4" name="format" type="radio" value="api">
+                <label class="nhsuk-label nhsuk-radios__label" for="format-4">
+                  API access
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  Programmatic access to data via API (requires additional approval)
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="format-5" name="format" type="radio" value="other" aria-controls="conditional-format-5">
+                <label class="nhsuk-label nhsuk-radios__label" for="format-5">
+                  Other
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  Please specify in the text box below
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__conditional" id="conditional-format-5">
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label" for="format-other">
+                    Other format details
+                  </label>
+                  <input class="nhsuk-input" id="format-other" name="format-other" type="text">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+        <!-- Upload Specification Section -->
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset" aria-describedby="upload-spec-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+              <h2 class="nhsuk-fieldset__heading">
+                Upload specification (optional)
+              </h2>
+            </legend>
+            
+            <div class="nhsuk-hint" id="upload-spec-hint">
+              <p>If you have a detailed specification document for your data request, you can upload it here.</p>
+            </div>
+            
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="file-upload">
+                Upload file
+              </label>
+              <input class="nhsuk-input" id="file-upload" name="file-upload" type="file">
+            </div>
+          </fieldset>
+        </div>
+        
+        <!-- Delivery Method Section -->
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset" aria-describedby="delivery-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+              <h2 class="nhsuk-fieldset__heading">
+                Delivery method
+              </h2>
+            </legend>
+            
+            <div class="nhsuk-hint" id="delivery-hint">
+              <p>Select how you would like to receive the data</p>
+            </div>
+            
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="delivery-1" name="delivery" type="radio" value="email">
+                <label class="nhsuk-label nhsuk-radios__label" for="delivery-1">
+                  Email
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  Sent to your NHS email address
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="delivery-2" name="delivery" type="radio" value="secure-transfer">
+                <label class="nhsuk-label nhsuk-radios__label" for="delivery-2">
+                  Secure file transfer
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  Via NHS secure file transfer service
+                </div>
+              </div>
+              
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="delivery-3" name="delivery" type="radio" value="data-portal">
+                <label class="nhsuk-label nhsuk-radios__label" for="delivery-3">
+                  Data portal access
+                </label>
+                <div class="nhsuk-hint nhsuk-radios__hint">
+                  Access via NHSBSA Data Portal
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+        {{ button({
+          "text": "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

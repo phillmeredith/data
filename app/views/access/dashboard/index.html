@@ -1,0 +1,175 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Dashboard Request - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/access/dashboard",
+    text: "Dashboard Request"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">Request a new dashboard</h1>
+      
+      <p class="nhsuk-body-l">Use this form to request a new dashboard to be created for your data needs.</p>
+      
+      <form action="/access/dashboard/confirmation" method="post">
+        <!-- Business Area Selection -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="business-area">
+            Which business area is this dashboard for?
+          </label>
+          <select class="nhsuk-select" id="business-area" name="business-area">
+            <option value="">Select a business area</option>
+            <option value="pharmaceutical">Pharmaceutical</option>
+            <option value="ophthalmic">Ophthalmic</option>
+            <option value="gp">General Practice (GP)</option>
+            <option value="dental">Dental</option>
+            <option value="provider-assurance">Provider Assurance</option>
+            <option value="cross-cutting">Cross-cutting (multiple areas)</option>
+          </select>
+        </div>
+        
+        <!-- Dashboard Title -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="dashboard-title">
+            Proposed dashboard title
+          </label>
+          <input class="nhsuk-input" id="dashboard-title" name="dashboard-title" type="text">
+        </div>
+        
+        <!-- Dashboard Purpose -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="purpose">
+            What is the purpose of this dashboard?
+          </label>
+          <div class="nhsuk-hint">
+            <p>Please describe what you want to achieve with this dashboard</p>
+          </div>
+          <textarea class="nhsuk-textarea" id="purpose" name="purpose" rows="5" aria-describedby="purpose-hint"></textarea>
+        </div>
+        
+        <!-- Target Audience -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="audience">
+            Who will use this dashboard?
+          </label>
+          <div class="nhsuk-hint">
+            <p>Describe the intended audience and their roles</p>
+          </div>
+          <textarea class="nhsuk-textarea" id="audience" name="audience" rows="3" aria-describedby="audience-hint"></textarea>
+        </div>
+        
+        <!-- Data Sources -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="data-sources">
+            What data sources should be included?
+          </label>
+          <div class="nhsuk-hint">
+            <p>List the datasets or systems that should feed into this dashboard</p>
+          </div>
+          <textarea class="nhsuk-textarea" id="data-sources" name="data-sources" rows="3" aria-describedby="data-sources-hint"></textarea>
+        </div>
+        
+        <!-- Key Metrics -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="key-metrics">
+            What are the key metrics or visualizations needed?
+          </label>
+          <div class="nhsuk-hint">
+            <p>Describe the main charts, tables, or indicators you want to see</p>
+          </div>
+          <textarea class="nhsuk-textarea" id="key-metrics" name="key-metrics" rows="5" aria-describedby="key-metrics-hint"></textarea>
+        </div>
+        
+        <!-- Upload Concept -->
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset" aria-describedby="upload-concept-hint">
+            <legend class="nhsuk-fieldset__legend">
+              Upload concept (optional)
+            </legend>
+            
+            <div class="nhsuk-hint" id="upload-concept-hint">
+              <p>If you have a sketch, mockup, or example of what you want, you can upload it here</p>
+            </div>
+            
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label" for="file-upload">
+                Upload file
+              </label>
+              <input class="nhsuk-input" id="file-upload" name="file-upload" type="file">
+            </div>
+          </fieldset>
+        </div>
+        
+        <!-- Email Address -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="email">
+            Your NHS email address
+          </label>
+          <div class="nhsuk-hint">
+            <p>Must be an @nhs.net or @nhs.uk email address</p>
+          </div>
+          <input class="nhsuk-input" id="email" name="email" type="email">
+        </div>
+        
+        <!-- Organisation -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="organisation">
+            Your organisation
+          </label>
+          <input class="nhsuk-input" id="organisation" name="organisation" type="text">
+        </div>
+        
+        <!-- Urgency -->
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend">
+              How urgent is this request?
+            </legend>
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="urgency-1" name="urgency" type="radio" value="high">
+                <label class="nhsuk-label nhsuk-radios__label" for="urgency-1">
+                  High - needed within 2 weeks
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="urgency-2" name="urgency" type="radio" value="medium">
+                <label class="nhsuk-label nhsuk-radios__label" for="urgency-2">
+                  Medium - needed within 1 month
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="urgency-3" name="urgency" type="radio" value="low">
+                <label class="nhsuk-label nhsuk-radios__label" for="urgency-3">
+                  Low - needed within 3 months
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+        <!-- Submit Button -->
+        {{ button({
+          "text": "Submit request"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

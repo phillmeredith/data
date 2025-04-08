@@ -1,0 +1,244 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Our Communities - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/communities",
+    text: "Our Communities"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">Our Communities</h1>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <p class="nhsuk-body-l">Connect with data communities and find support for your data needs. This section provides information on how to connect with other data users, access training, and get help with using NHSBSA data.</p>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-half">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">
+                <a href="#">Data User Community</a>
+              </h2>
+              <p class="nhsuk-card__description">Join our community of data users across the NHS</p>
+              <p>The NHSBSA Data User Community brings together data analysts, managers, and users from across the NHS to share knowledge, best practices, and support each other in using NHSBSA data effectively.</p>
+              <p><strong>Benefits of joining:</strong></p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li>Connect with peers facing similar challenges</li>
+                <li>Share knowledge and best practices</li>
+                <li>Get early access to new datasets and features</li>
+                <li>Influence the development of the Data Hub</li>
+                <li>Participate in user research and testing</li>
+              </ul>
+              <div class="nhsuk-action-link">
+                <a class="nhsuk-action-link__link" href="#">
+                  <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+                  </svg>
+                  <span class="nhsuk-action-link__text">Join the community</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="nhsuk-grid-column-one-half">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">
+                <a href="#">Training and Events</a>
+              </h2>
+              <p class="nhsuk-card__description">Access training resources and upcoming events</p>
+              <p>We offer a range of training sessions and events to help you make the most of NHSBSA data. These include:</p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li>Introduction to the Data Hub</li>
+                <li>Working with Prescribing Data</li>
+                <li>Dashboard Creation Workshops</li>
+                <li>Data Quality and Governance</li>
+                <li>Advanced Analytics with NHSBSA Data</li>
+              </ul>
+              <p><strong>Upcoming events:</strong></p>
+              <ul class="nhsuk-list">
+                <li>15 April 2025 - Introduction to the Data Hub (Online)</li>
+                <li>22 April 2025 - Working with Prescribing Data (Online)</li>
+                <li>29 April 2025 - Dashboard Creation Workshop (Newcastle)</li>
+              </ul>
+              <div class="nhsuk-action-link">
+                <a class="nhsuk-action-link__link" href="#">
+                  <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+                  </svg>
+                  <span class="nhsuk-action-link__text">View all events and register</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-half">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">
+                <a href="#">Support and Help</a>
+              </h2>
+              <p class="nhsuk-card__description">Get help with using NHSBSA data and systems</p>
+              <p>Our support team is available to help you with any questions or issues you may have when using NHSBSA data or systems.</p>
+              <p><strong>Contact methods:</strong></p>
+              <ul class="nhsuk-list">
+                <li><strong>Email:</strong> <a href="#">datahub@nhsbsa.nhs.uk</a></li>
+                <li><strong>Phone:</strong> 0300 330 1348 (Monday to Friday, 9am to 5pm)</li>
+                <li><strong>Online chat:</strong> Available through the Data Hub portal</li>
+              </ul>
+              <p><strong>Support offered:</strong></p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li>Help with accessing systems and datasets</li>
+                <li>Guidance on using dashboards and reports</li>
+                <li>Assistance with data requests</li>
+                <li>Technical support for data-related issues</li>
+                <li>Help with interpreting data and metadata</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="nhsuk-grid-column-one-half">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">
+                <a href="#">Knowledge Base</a>
+              </h2>
+              <p class="nhsuk-card__description">Access guides, FAQs, and resources</p>
+              <p>Our knowledge base contains a wealth of information to help you use NHSBSA data effectively.</p>
+              <p><strong>Popular resources:</strong></p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li><a href="#">Getting Started with the Data Hub</a></li>
+                <li><a href="#">Understanding Prescribing Data</a></li>
+                <li><a href="#">Guide to Data Request Process</a></li>
+                <li><a href="#">Interpreting Dashboard Metrics</a></li>
+                <li><a href="#">Data Quality Assurance Guide</a></li>
+              </ul>
+              <p><strong>Frequently Asked Questions:</strong></p>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li><a href="#">How do I request access to a dataset?</a></li>
+                <li><a href="#">What data is available through the Data Hub?</a></li>
+                <li><a href="#">How often is the data updated?</a></li>
+                <li><a href="#">Can I download data for local analysis?</a></li>
+                <li><a href="#">How do I report a data quality issue?</a></li>
+              </ul>
+              <div class="nhsuk-action-link">
+                <a class="nhsuk-action-link__link" href="#">
+                  <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+                  </svg>
+                  <span class="nhsuk-action-link__text">Browse the knowledge base</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">Regional Data Champions</h2>
+              <p>Our network of Regional Data Champions provides local support and expertise for using NHSBSA data. These champions are experienced data users who can provide guidance, share best practices, and help you connect with other users in your region.</p>
+              
+              <div class="nhsuk-table-responsive">
+                <table class="nhsuk-table">
+                  <caption class="nhsuk-table__caption">Regional Data Champions</caption>
+                  <thead class="nhsuk-table__head">
+                    <tr class="nhsuk-table__row">
+                      <th scope="col" class="nhsuk-table__header">Region</th>
+                      <th scope="col" class="nhsuk-table__header">Name</th>
+                      <th scope="col" class="nhsuk-table__header">Organization</th>
+                      <th scope="col" class="nhsuk-table__header">Contact</th>
+                    </tr>
+                  </thead>
+                  <tbody class="nhsuk-table__body">
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">North East and Yorkshire</td>
+                      <td class="nhsuk-table__cell">Sarah Johnson</td>
+                      <td class="nhsuk-table__cell">NHS England (North East)</td>
+                      <td class="nhsuk-table__cell"><a href="#">sarah.johnson@nhs.net</a></td>
+                    </tr>
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">North West</td>
+                      <td class="nhsuk-table__cell">Mohammed Ali</td>
+                      <td class="nhsuk-table__cell">Manchester University NHS Foundation Trust</td>
+                      <td class="nhsuk-table__cell"><a href="#">mohammed.ali@nhs.net</a></td>
+                    </tr>
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">Midlands</td>
+                      <td class="nhsuk-table__cell">Emma Wilson</td>
+                      <td class="nhsuk-table__cell">University Hospitals Birmingham</td>
+                      <td class="nhsuk-table__cell"><a href="#">emma.wilson@nhs.net</a></td>
+                    </tr>
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">East of England</td>
+                      <td class="nhsuk-table__cell">David Chen</td>
+                      <td class="nhsuk-table__cell">Cambridge University Hospitals</td>
+                      <td class="nhsuk-table__cell"><a href="#">david.chen@nhs.net</a></td>
+                    </tr>
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">London</td>
+                      <td class="nhsuk-table__cell">Priya Patel</td>
+                      <td class="nhsuk-table__cell">North West London ICB</td>
+                      <td class="nhsuk-table__cell"><a href="#">priya.patel@nhs.net</a></td>
+                    </tr>
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">South East</td>
+                      <td class="nhsuk-table__cell">James Taylor</td>
+                      <td class="nhsuk-table__cell">Kent and Medway ICB</td>
+                      <td class="nhsuk-table__cell"><a href="#">james.taylor@nhs.net</a></td>
+                    </tr>
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">South West</td>
+                      <td class="nhsuk-table__cell">Lucy Evans</td>
+                      <td class="nhsuk-table__cell">Devon ICB</td>
+                      <td class="nhsuk-table__cell"><a href="#">lucy.evans@nhs.net</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <div class="nhsuk-inset-text">
+            <span class="nhsuk-u-visually-hidden">Information: </span>
+            <p>Want to become a Data Champion or suggest improvements to the Data Hub? Email us at <a href="#">datahub@nhsbsa.nhs.uk</a> with your ideas and suggestions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

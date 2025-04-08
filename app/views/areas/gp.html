@@ -1,0 +1,158 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  General Practice (GP) Data - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/areas/gp",
+    text: "General Practice (GP)"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">General Practice (GP) Data</h1>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-two-thirds">
+          <p class="nhsuk-body-l">Access General Practice data, systems and dashboards from the NHS Business Services Authority. This area provides information on GP prescribing, patient registrations, and practice performance across England.</p>
+        </div>
+      </div>
+
+      <!-- Key Systems Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Key Systems</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">GP Prescribing Dashboard</h3>
+              <p>Access detailed prescribing data at GP practice level, including cost and volume analysis.</p>
+              <p>Use this system to:</p>
+              <ul>
+                <li>Compare prescribing patterns across practices</li>
+                <li>Identify outliers in prescribing behavior</li>
+                <li>Monitor adherence to local formularies</li>
+              </ul>
+              <a href="/access/system" class="nhsuk-button">Request Access</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">GP Registration System</h3>
+              <p>View and analyze patient registration data across GP practices.</p>
+              <p>Use this system to:</p>
+              <ul>
+                <li>Monitor patient list sizes</li>
+                <li>Track registration changes over time</li>
+                <li>Analyze demographic patterns</li>
+              </ul>
+              <a href="/access/system" class="nhsuk-button">Request Access</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Datasets Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Available Datasets</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">GP Practice Prescribing Data</h3>
+              <p>Monthly prescribing data at practice level, including items, costs, and BNF categories.</p>
+              <p>Updated: Monthly</p>
+              <a href="/datasets/gp-prescribing" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">GP Demographics</h3>
+              <p>Patient demographic data by GP practice, including age bands, gender, and deprivation indices.</p>
+              <p>Updated: Quarterly</p>
+              <a href="/datasets/gp-demographics" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">GP Quality Outcomes Framework</h3>
+              <p>Performance data against QOF indicators for all GP practices in England.</p>
+              <p>Updated: Annually</p>
+              <a href="/datasets/gp-qof" class="nhsuk-button">View Dataset</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboards Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Dashboards</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">GP Prescribing Patterns</h3>
+              <p>Interactive dashboard showing prescribing trends, costs, and comparison tools for GP practices.</p>
+              <a href="/dashboards/gp-prescribing-patterns" class="nhsuk-button">View Dashboard</a>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">GP Practice Performance</h3>
+              <p>Dashboard for monitoring practice performance against key indicators and benchmarks.</p>
+              <a href="/dashboards/gp-performance" class="nhsuk-button">View Dashboard</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Use Case Examples</h2>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Improving Diabetes Management</h3>
+              <p>An Integrated Care System used GP prescribing data to identify practices with lower than expected prescribing of newer diabetes medications, leading to targeted education and a 22% improvement in appropriate prescribing.</p>
+            </div>
+          </div>
+          
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h3 class="nhsuk-card__heading">Workforce Planning</h3>
+              <p>NHS England used GP demographic data to model future workforce requirements, helping to target recruitment initiatives in areas with aging GP populations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Request Data Section -->
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">Need Something Specific?</h2>
+          <p>If you can't find what you need in our existing datasets or dashboards, you can submit a custom data request.</p>
+          <a href="/request-data" class="nhsuk-button">Request Data</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

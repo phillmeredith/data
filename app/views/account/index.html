@@ -1,0 +1,261 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  My Account - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/account",
+    text: "My Account"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">My Account</h1>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-third">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">User Information</h2>
+              <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Name
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Jane Doe
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Email
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    jane.doe@nhs.net
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Organisation
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    NHS England
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Role
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Senior Data Analyst
+                  </dd>
+                </div>
+              </dl>
+              <p><a href="#">Edit profile</a></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="nhsuk-grid-column-two-thirds">
+          <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading">Quick Actions</h2>
+              <ul class="nhsuk-grid-row nhsuk-card-group">
+                <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+                  <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                      <h3 class="nhsuk-card__heading nhsuk-heading-s">
+                        <a href="/request-data">Request Data</a>
+                      </h3>
+                      <p class="nhsuk-card__description">Submit a new data request</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+                  <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                      <h3 class="nhsuk-card__heading nhsuk-heading-s">
+                        <a href="/access/system">Request System Access</a>
+                      </h3>
+                      <p class="nhsuk-card__description">Request access to a system</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+                  <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                      <h3 class="nhsuk-card__heading nhsuk-heading-s">
+                        <a href="/access/dashboard">Request Dashboard</a>
+                      </h3>
+                      <p class="nhsuk-card__description">Request a new dashboard</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">My Access</h2>
+          
+          <div class="nhsuk-table-responsive">
+            <table class="nhsuk-table">
+              <caption class="nhsuk-table__caption">Systems and datasets you have access to</caption>
+              <thead class="nhsuk-table__head">
+                <tr class="nhsuk-table__row">
+                  <th scope="col" class="nhsuk-table__header">Name</th>
+                  <th scope="col" class="nhsuk-table__header">Type</th>
+                  <th scope="col" class="nhsuk-table__header">Status</th>
+                  <th scope="col" class="nhsuk-table__header">Date Granted</th>
+                  <th scope="col" class="nhsuk-table__header">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">ePACT2</td>
+                  <td class="nhsuk-table__cell">System</td>
+                  <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-tag--green">Approved</span></td>
+                  <td class="nhsuk-table__cell">15 March 2025</td>
+                  <td class="nhsuk-table__cell"><a href="#">Access system</a></td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">GP Prescribing Data</td>
+                  <td class="nhsuk-table__cell">Dataset</td>
+                  <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-tag--green">Approved</span></td>
+                  <td class="nhsuk-table__cell">22 March 2025</td>
+                  <td class="nhsuk-table__cell"><a href="#">View dataset</a></td>
+                </tr>
+                <tr class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell">Dental Claims</td>
+                  <td class="nhsuk-table__cell">Dataset</td>
+                  <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-tag--blue">Pending</span></td>
+                  <td class="nhsuk-table__cell">-</td>
+                  <td class="nhsuk-table__cell"><a href="#">View request</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+          <h2 class="nhsuk-heading-l">My Requests</h2>
+          
+          <div class="nhsuk-tabs">
+            <h2 class="nhsuk-tabs__title">
+              Requests
+            </h2>
+            <ul class="nhsuk-tabs__list">
+              <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+                <a class="nhsuk-tabs__tab" href="#active">
+                  Active requests
+                </a>
+              </li>
+              <li class="nhsuk-tabs__list-item">
+                <a class="nhsuk-tabs__tab" href="#completed">
+                  Completed requests
+                </a>
+              </li>
+            </ul>
+            
+            <div class="nhsuk-tabs__panel" id="active">
+              <div class="nhsuk-table-responsive">
+                <table class="nhsuk-table">
+                  <thead class="nhsuk-table__head">
+                    <tr class="nhsuk-table__row">
+                      <th scope="col" class="nhsuk-table__header">Reference</th>
+                      <th scope="col" class="nhsuk-table__header">Type</th>
+                      <th scope="col" class="nhsuk-table__header">Description</th>
+                      <th scope="col" class="nhsuk-table__header">Date Submitted</th>
+                      <th scope="col" class="nhsuk-table__header">Status</th>
+                      <th scope="col" class="nhsuk-table__header">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody class="nhsuk-table__body">
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">DAR-20250401-4567</td>
+                      <td class="nhsuk-table__cell">Data Request</td>
+                      <td class="nhsuk-table__cell">Prescription data for North East region</td>
+                      <td class="nhsuk-table__cell">1 April 2025</td>
+                      <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-tag--blue">In progress</span></td>
+                      <td class="nhsuk-table__cell"><a href="#">View details</a></td>
+                    </tr>
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">SAR-20250405-7890</td>
+                      <td class="nhsuk-table__cell">System Access</td>
+                      <td class="nhsuk-table__cell">Contract Management System</td>
+                      <td class="nhsuk-table__cell">5 April 2025</td>
+                      <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-tag--blue">Pending approval</span></td>
+                      <td class="nhsuk-table__cell"><a href="#">View details</a></td>
+                    </tr>
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">DBR-20250402-2345</td>
+                      <td class="nhsuk-table__cell">Dashboard Request</td>
+                      <td class="nhsuk-table__cell">Dental Contract Performance</td>
+                      <td class="nhsuk-table__cell">2 April 2025</td>
+                      <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-tag--blue">Requirements gathering</span></td>
+                      <td class="nhsuk-table__cell"><a href="#">View details</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="completed">
+              <div class="nhsuk-table-responsive">
+                <table class="nhsuk-table">
+                  <thead class="nhsuk-table__head">
+                    <tr class="nhsuk-table__row">
+                      <th scope="col" class="nhsuk-table__header">Reference</th>
+                      <th scope="col" class="nhsuk-table__header">Type</th>
+                      <th scope="col" class="nhsuk-table__header">Description</th>
+                      <th scope="col" class="nhsuk-table__header">Date Completed</th>
+                      <th scope="col" class="nhsuk-table__header">Status</th>
+                      <th scope="col" class="nhsuk-table__header">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody class="nhsuk-table__body">
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">DAR-20250315-1234</td>
+                      <td class="nhsuk-table__cell">Data Request</td>
+                      <td class="nhsuk-table__cell">Monthly prescribing data</td>
+                      <td class="nhsuk-table__cell">22 March 2025</td>
+                      <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-tag--green">Completed</span></td>
+                      <td class="nhsuk-table__cell"><a href="#">Download data</a></td>
+                    </tr>
+                    <tr class="nhsuk-table__row">
+                      <td class="nhsuk-table__cell">SAR-20250310-5678</td>
+                      <td class="nhsuk-table__cell">System Access</td>
+                      <td class="nhsuk-table__cell">ePACT2 System</td>
+                      <td class="nhsuk-table__cell">15 March 2025</td>
+                      <td class="nhsuk-table__cell"><span class="nhsuk-tag nhsuk-tag--green">Approved</span></td>
+                      <td class="nhsuk-table__cell"><a href="#">Access system</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

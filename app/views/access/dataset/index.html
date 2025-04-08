@@ -1,0 +1,163 @@
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Dataset Access Request - {{ serviceName }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ],
+    href: "/access/dataset",
+    text: "Dataset Access Request"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">Request access to a dataset</h1>
+      
+      <p class="nhsuk-body-l">Use this form to request access to NHSBSA datasets.</p>
+      
+      <form action="/access/dataset/confirmation" method="post">
+        <!-- Dataset Search -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="dataset-search">
+            Search for a dataset
+          </label>
+          <div class="nhsuk-hint">
+            <p>Enter keywords to find the dataset you need</p>
+          </div>
+          <input class="nhsuk-input" id="dataset-search" name="dataset-search" type="text">
+        </div>
+        
+        <!-- Dataset Selection -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="dataset">
+            Select a dataset
+          </label>
+          <select class="nhsuk-select" id="dataset" name="dataset">
+            <option value="">Select a dataset</option>
+            <option value="prescription-cost-analysis">Prescription Cost Analysis (PCA)</option>
+            <option value="practice-prescribing">Practice Prescribing Data</option>
+            <option value="pharmacy-contractor">Pharmacy Contractor Activity</option>
+            <option value="gp-prescribing">GP Practice Prescribing Data</option>
+            <option value="gp-demographics">GP Demographics</option>
+            <option value="gp-qof">GP Quality Outcomes Framework</option>
+            <option value="provider-performance">Provider Performance Metrics</option>
+            <option value="contract-compliance">Contract Compliance Data</option>
+            <option value="financial-assurance">Financial Assurance Data</option>
+          </select>
+        </div>
+        
+        <!-- Reason for Access -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="reason">
+            Why do you need access to this dataset?
+          </label>
+          <div class="nhsuk-hint">
+            <p>Please provide details of your job role and how you will use this data</p>
+          </div>
+          <textarea class="nhsuk-textarea" id="reason" name="reason" rows="5" aria-describedby="reason-hint"></textarea>
+        </div>
+        
+        <!-- Purpose Selection -->
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend">
+              What is the primary purpose for accessing this dataset?
+            </legend>
+            <div class="nhsuk-radios">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-1" name="purpose" type="radio" value="analysis">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-1">
+                  Analysis and reporting
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-2" name="purpose" type="radio" value="research">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-2">
+                  Research
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-3" name="purpose" type="radio" value="audit">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-3">
+                  Audit
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-4" name="purpose" type="radio" value="service-improvement">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-4">
+                  Service improvement
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="purpose-5" name="purpose" type="radio" value="other">
+                <label class="nhsuk-label nhsuk-radios__label" for="purpose-5">
+                  Other
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+        <!-- Email Address -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="email">
+            Your NHS email address
+          </label>
+          <div class="nhsuk-hint">
+            <p>Must be an @nhs.net or @nhs.uk email address</p>
+          </div>
+          <input class="nhsuk-input" id="email" name="email" type="email">
+        </div>
+        
+        <!-- Organisation -->
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="organisation">
+            Your organisation
+          </label>
+          <input class="nhsuk-input" id="organisation" name="organisation" type="text">
+        </div>
+        
+        <!-- Data Governance -->
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend">
+              Have you completed Information Governance training in the last 12 months?
+            </legend>
+            <div class="nhsuk-radios nhsuk-radios--inline">
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="ig-yes" name="ig-training" type="radio" value="yes">
+                <label class="nhsuk-label nhsuk-radios__label" for="ig-yes">
+                  Yes
+                </label>
+              </div>
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="ig-no" name="ig-training" type="radio" value="no">
+                <label class="nhsuk-label nhsuk-radios__label" for="ig-no">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        
+        <!-- Submit Button -->
+        {{ button({
+          "text": "Submit request"
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
